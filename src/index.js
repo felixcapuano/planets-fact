@@ -5,7 +5,7 @@ import App from './components/App/App';
 import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react';
 
 const matomo = createInstance({
-  urlBase: 'https://localhost:8080/',
+  urlBase: 'http://localhost:8080/',
   siteId: 1,
   userId: 'UID76903202', // optional, default value: `undefined`.
   //   trackerUrl: 'https://LINK.TO.DOMAIN/tracking.php', // optional, default value: `${urlBase}matomo.php`
