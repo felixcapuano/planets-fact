@@ -3,11 +3,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './components/App/App';
 
 import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react';
+import { v4 as uuidv4 } from 'uuid';
 
 const matomo = createInstance({
   urlBase: 'http://localhost:8000/',
   siteId: 1,
-  userId: 'UID76903201', // optional, default value: `undefined`.
+  userId: uuidv4(), // optional, default value: `undefined`.
   //   trackerUrl: 'https://LINK.TO.DOMAIN/tracking.php', // optional, default value: `${urlBase}matomo.php`
   //   srcUrl: 'https://LINK.TO.DOMAIN/tracking.js', // optional, default value: `${urlBase}matomo.js`
   //   disabled: false, // optional, false by default. Makes all tracking calls no-ops if set to true.
