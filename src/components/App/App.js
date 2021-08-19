@@ -13,10 +13,14 @@ import Saturn from '../../pages/Saturn/Saturn';
 import Uranus from '../../pages/Uranus/Uranus';
 import Neptune from '../../pages/Neptune/Neptune';
 import KeyVisual from '../KeyVisual/KeyVisual';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 const App = () => {
   const location = useLocation();
   const [activePlanet, setActivePlanet] = useState('/');
+
+  const { enableLinkTracking } = useMatomo();
+  enableLinkTracking();
 
   return (
     <Provider>

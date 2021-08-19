@@ -19,15 +19,16 @@ const PlanetSection = ({ planetData }) => {
   };
 
   useEffect(() => {
-    trackPageView();
-    console.log(planetData);
+    trackPageView({
+      documentTitle: `${planetData.name} page`,
+    });
 
     window.addEventListener('resize', checkWindowWidth);
 
     return () => {
       window.removeEventListener('resize', checkWindowWidth);
     };
-  }, []);
+  }, [planetData]);
 
   return (
     <Section>

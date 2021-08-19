@@ -2,16 +2,12 @@ import { useEffect, useState } from 'react';
 import { Header, Logo, LogoLink, Container } from './NavbarStyles';
 import NavMobile from './NavMobile/NavMobile';
 import NavDesktop from './NavDesktop/NavDesktop';
-import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 const Navbar = ({ pathName, activePlanet, onHover }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const tabletBreakpoint = 768;
-  const { enableLinkTracking, trackPageView } = useMatomo();
-  enableLinkTracking();
 
   useEffect(() => {
-    trackPageView();
 
     window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
   }, [windowWidth]);

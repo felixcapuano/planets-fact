@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { Container, Sun, AsteroidsBelt } from './KeyVisualStyles';
 import { planets } from './data';
 import PlanetSwitch from './PlanetSwitch';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 
 const KeyVisual = ({ activePlanet }) => {
   const containerVariants = {
@@ -22,6 +24,14 @@ const KeyVisual = ({ activePlanet }) => {
       transition: { duration: 1 },
     },
   };
+
+  const { trackPageView } = useMatomo();
+
+  useEffect(() => {
+    trackPageView({
+      documentTitle: 'Home page',
+    });
+  }, [trackPageView]);
 
   return (
     <Container
